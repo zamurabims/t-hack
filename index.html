@@ -1,11 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ВТМ</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello World</h1>
-    <p>This is a simple HTML document.</p>
+  <header>
+    <h1>финансы</h1>
+  </header>
+
+  <main>
+    <section class="stats">
+      <div class="stat-card">
+        <span class="stat-label">Баланс</span>
+        <span class="stat-value" id="stat-balance">0 ₽</span>
+      </div>
+      <div class="stat-card income">
+        <span class="stat-label">Доходы за месяц</span>
+        <span class="stat-value" id="stat-income">0 ₽</span>
+      </div>
+      <div class="stat-card expense">
+        <span class="stat-label">Расходы за месяц</span>
+        <span class="stat-value" id="stat-expense">0 ₽</span>
+      </div>
+    </section>
+    <section class="form-section">
+      <h2>Добавить транзакцию</h2>
+      <form id="tx-form">
+
+        <div class="form-group">
+          <label for="tx-type">Тип</label>
+          <select id="tx-type">
+            <option value="income">Доход</option>
+            <option value="expense">Расход</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="tx-amount">Сумма (₽)</label>
+          <input type="number" id="tx-amount" placeholder="0" min="0.01" step="0.01" required>
+        </div>
+
+        <div class="form-group">
+          <label for="tx-category">Категория</label>
+          <select id="tx-category" required>
+            <option value="">— выберите —</option>
+            <option value="Еда">Еда</option>
+            <option value="Транспорт">Транспорт</option>
+            <option value="Развлечения">Развлечения</option>
+            <option value="Учёба">Учёба</option>
+            <option value="Другое">Другое</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="tx-date">Дата</label>
+          <input type="date" id="tx-date" required>
+        </div>
+
+        <div class="form-group">
+          <label for="tx-comment">Комментарий</label>
+          <input type="text" id="tx-comment" placeholder="Необязательно">
+        </div>
+
+        <button type="submit">+ Добавить</button>
+
+      </form>
+    </section>
+
+    <section class="list-section">
+      <h2>История транзакций</h2>
+      <div id="transactions-list">
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
 </html>
