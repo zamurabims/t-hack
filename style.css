@@ -3,6 +3,13 @@ element.style {
     -webkit-text-size-adjust: 100%;
 }
 
+header {
+    padding: 20px;
+    background-color: #FBBF24;
+    color: var(--text-color-inverted);
+    text-align: center;
+}
+
 body {
     padding: 0;
     margin: 0;
