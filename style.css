@@ -1,112 +1,193 @@
-element.style {
-    font-family: Arial, 'Yandex Sans Text', Segoe UI, sans-serif;
-    -webkit-text-size-adjust: 100%;
-}
-
-header {
-    padding: 20px;
-    background-color: #FBBF24;
-    color: var(--text-color-inverted);
-    text-align: center;
+/* ── Базовые стили ── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    padding: 0;
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    background: var(--background-color);
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
+  color: #222;
+  font-size: 16px;
 }
 
-
-<style>/* Copyright 2025 Yandex LLC. All rights reserved. */
-
-:root {
-  --font-14: normal 400 14px/18px 'YS Text', sans-serif;
-  --font-14-20: normal 400 14px/20px 'YS Text', sans-serif;
-  --font-15-20: normal 400 15px/20px 'YS Text', sans-serif;
-  --font-16: normal 400 16px/20px 'YS Text', sans-serif;
-  --font-16-bold: normal 500 16px/20px 'YS Text', sans-serif;
-  --font-22: normal 400 22px/26px 'YS Text', sans-serif;
-  --font-28: normal 400 28px/32px 'YS Text', sans-serif;
-
-  --background-color: #F3F3F2;
-  --text-color-primary: #000000;
-  --text-color-secondary: #000000A8;
-  --text-color-inverted: #FFFFFF;
-  --accent-graphite-color: #2C2C32;
-  --accent-graphite-hover-color: #43434C;
-  --accent-graphite-active-color: #696977;
-  --fill-6-color: #0000000F;
-  --fill-9-color: #00000017;
-  --fill-12-color: #0000001F;
-  --fill-18-color: #0000002E;
-  --applied-link-color: #0077FF;
-  --applied-debug-info-background-color: #FFF;
-  --applied-debug-info-shadow-color: #0000001C;
+/* ── Шапка ── */
+header {
+  background: #FFD700;
+  padding: 16px 24px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: #000000;
-    --text-color-primary: #FFFFFF;
-    --text-color-secondary: #FFFFFFB0;
-    --text-color-inverted: #000000;
-    --accent-graphite-color: #EAEAEC;
-    --accent-graphite-hover-color: #CFCFD3;
-    --accent-graphite-active-color: #AEAEB7;
-    --fill-6-color: #FFFFFF1F;
-    --fill-9-color: #FFFFFF2E;
-    --fill-12-color: #FFFFFF3D;
-    --fill-18-color: #FFFFFF47;
-    --applied-link-color: #62AAFD;
-    --applied-debug-info-background-color: #28282E;
-    --applied-debug-info-shadow-color: #0000001C;
-  }
-}
-</style>
-
-<style>/* Copyright 2025 Yandex LLC. All rights reserved. */
-
-.icon {
-  display: inline-block;
-  width: var(--icon-size);
-  height: var(--icon-size);
-  background: var(--icon-color);
-  /* WebKit iOS 15 needs -webkit-mask- prefixed properties */
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  -webkit-mask-image: var(--icon-image);
-  -webkit-mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mask-image: var(--icon-image);
-  mask-size: contain;
+header h1 {
+  font-size: 22px;
 }
 
-.icon.icon-protect {
-  --icon-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iIzAwMCIgZD0iTTEzLjQxOC42ODggMTMuNC42OTNsLS4yMDMuMDY3LS4wMTUuMDA2Yy0uMjI2LjA4Ny0uNDEuMTk0LS41ODYuMjkzbC04Ljk2IDQuOTc4LS4zOTIuMjI1LS4wMS4wMDhjLS4xNDEuMDktLjI4NS4xOTMtLjQyLjMyOGwtLjAxLjAxLS4wOTcuMTA1LS4wMDguMDA4YTIuMyAyLjMgMCAwIDAtLjUwNiAxLjAybC0uMDA0LjAxNy0uMDM1LjIzNC0uMDAyLjAyYy0uMDIzLjI3IDAgLjUwMi4wMTQuNzE4di4wMDJsLjA1NS43ODh2LjAwMWMuMjkzIDMuOTE3Ljg0IDcuNDY2IDIuMzg2IDEwLjUxbC4wMDQuMDA2LjMwNy41Ny4wMDIuMDA2YzEuNjIyIDIuODgxIDQuMTkxIDUuMTg5IDcuOTcgNi44NDRsLjAwNS4wMDIuMjY1LjExMy4wMTIuMDA0cS4xNjcuMDYzLjM0Mi4xMDJsLjAyLjAwNi4yMTQuMDMzLjAxOC4wMDJxLjIzNC4wMjEuNDY4IDBsLjAxOC0uMDAyLjIxLS4wMzEuMDItLjAwNnEuMTgzLS4wNC4zNTQtLjEwOGwuMDA4LS4wMDIuMjYxLS4xMS4wMDQtLjAwM2MzLjc4LTEuNjU1IDYuMzUtMy45NjMgNy45NzEtNi44NDRsLjAwNC0uMDA2LjMwNy0uNTcuMDAyLS4wMDZjMS41NDQtMy4wNDQgMi4wOTItNi41OTUgMi4zODQtMTAuNTEybC4wNTctLjgwNFY4LjY5Yy4wMTQtLjIwNy4wMzQtLjQyNy4wMTQtLjY3N3YtLjAyMmwtLjAzNy0uMjM2LS4wMDQtLjAxOGEyLjMgMi4zIDAgMCAwLS41MDgtMS4wMTdsLS4wMDgtLjAwOC0uMDk2LS4xMDYtLjAwNy0uMDA1YTIuNCAyLjQgMCAwIDAtLjQyMi0uMzMybC0uMDEyLS4wMDgtLjM5LS4yMjUtOC45NjItNC45NzhjLS4xNzUtLjA5OC0uMzU3LS4yMDYtLjU4NC0uMjkzTDE0LjgwMy43NiAxNC42LjY5M2wtLjAyLS4wMDVhMi4zIDIuMyAwIDAgMC0xLjE2MiAwbS4yOTkgMS4xNThoLjAwNGMuMTgyLS4wNDcuMzc0LS4wNDcuNTU4IDBsLjEwOC4wMzVjLjExLjA0Mi4yNS4xMi40MzUuMjIzbDguOTUzIDQuOTcyLjM1Mi4yMDNjLjA5NC4wNi4xNjEuMTEyLjIxLjE2MmwuMDU4LjA2M2MuMTE4LjEzNy4yMDQuMzEuMjQ0LjQ5bC4wMi4xMjljLjAwOC4xMzEtLjAwMy4zMDYtLjAxOC41M3YuMDAxbC0uMDAyLjAxOHYuMDA2bC0uMDUzLjc1NGMtLjI4OCAzLjg1Ny0uODMzIDcuMjQ3LTIuMjU4IDEwLjA1NmwtLjI5LjU0MWMtMS40OTIgMi42NDktMy44MTUgNC43NTktNy40MDEgNi4zM2wtLjI0LjEwMnEtLjA3MS4wMjgtLjE1OS4wNDlsLS4xMTkuMDE3cS0uMTIxLjAxMS0uMjQ0IDBoLS4wMDJsLS4xMDctLjAxN2ExLjQgMS40IDAgMCAxLS4xNy0uMDUzaC0uMDAybC0uMjI5LS4wOThjLTMuNTg1LTEuNTcxLTUuOTEtMy42ODEtNy40MDItNi4zM2wtLjI5LS41Mzl2LS4wMDJDNC4yNDkgMTYuNjggMy43MDIgMTMuMjkgMy40MTQgOS40MzR2LS4wMDJsLS4wNTYtLjc3NlY4LjY1Yy0uMDE0LS4yMjUtLjAyNS0uMzk5LS4wMTUtLjUyNWwuMDItLjEzM1Y3Ljk5Yy4wMzgtLjE3Ny4xMjMtLjM1LjI0Mi0uNDg4bC4wMDEtLjAwMi4wNTMtLjA1Ny4wMDQtLjAwNGMuMDUzLS4wNTIuMTItLjEwMi4yMTEtLjE2bC4zNTItLjIwMyA4Ljk1NS00Ljk3MmMuMTgyLS4xMDIuMzIzLS4xOC40MzMtLjIyM3oiLz48cGF0aCBmaWxsPSIjMDAwIiBkPSJNMTkuODg5IDkuMjI0Yy0uNDc4LS40OC0uOTctLjgzLTEuMDY5LS43MzVsLTQuNjc3IDQuNTU5YS4yMDcuMjA3IDAgMCAxLS4yODggMEw5LjE3OCA4LjQ4OWMtLjA5OC0uMDk1LS41OS4yNTYtMS4wNjkuNzM1LS40NDYuNDczLS44Ljk5Ni0uNzAyIDEuMDlsNS4yMjMgNS4wOWEuMy4zIDAgMCAxIC4wOTQuMjIxbC0uMDA1IDYuMjI1YzAgLjEyLjU3MS4yNzQgMS4yOC4yNzRzMS4yOC0uMTUzIDEuMjgtLjI3NGwtLjAwNS02LjIyNWEuMy4zIDAgMCAxIC4wOTQtLjIyMmw1LjIyMy01LjA4OGMuMDk4LS4wOTUtLjI1Ni0uNjE4LS43MDItMS4wOSIvPjwvc3ZnPg==);
-  --icon-color: var(--text-color-primary);
-  --icon-size: 28px;
+/* ── Основной контент ── */
+main {
+  max-width: 800px;
+  margin: 24px auto;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-[theme="search-app"] .icon.icon-protect {
-    --icon-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgiIGhlaWdodD0iMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0yNS4yMzcxIDguNjkzNGMtLjI3NzUgNC4yMDUyLS43OTMyIDcuOTQ1MS0yLjM3NjkgMTEuMDY3My0xLjUzNTkgMy4wMjc3LTQuMDU4MSA1LjQyODEtNy45OTAzIDcuMTQ5NS0uMTczLjA3NTctLjMyOTMuMTQ3My0uNTE2Ni4xODY1LS4yMjIzLjA0NjUtLjQ4NDcuMDQ2NS0uNzA3IDAtLjE4NzEtLjAzOTItLjM0MjctLjExMDgtLjUxNTYtLjE4NjUtMy45MzAyLTEuNzIxNC02LjQ1MzgtNC4xMjE3LTcuOTkwMy03LjE0OTVDMy41NTYgMTYuNjM4NCAzLjA0IDEyLjg5ODYgMi43NjI1IDguNjkzNGMtLjAxOTgtLjMwMDItLjA0MzItLjU2ODMuMDEzNy0uODI3MmExLjczNTcgMS43MzU3IDAgMCAxIC40Ni0uODQ0N2MuMTg2Ny0uMTg4My40Mjc2LS4zMTU3LjY5NDMtLjQ2MzlsOC45NTgtNC45NzY1Yy4yMzgyLS4xMzI0LjQ0ODUtLjI1MzguNjc4Ny0uMzEzNWExLjcyNDcgMS43MjQ3IDAgMCAxIC44NjUyIDBjLjIzMDIuMDU5Ni40NDA2LjE4MTIuNjc4Ny4zMTM1bDguOTU4MSA0Ljk3NjVjLjI2NjcuMTQ4Mi41MDc0LjI3NTYuNjk0My40NjM5YTEuNzM1IDEuNzM1IDAgMCAxIC40NTk5Ljg0NDdjLjA1Ny4yNTkuMDMzNS41MjcuMDEzNy44MjcyWiIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjE5NTQiLz4KPHBhdGggZD0iTTE0LjE2NTggMTUuMjM2M2MuNjMxMiAxLjM4MjYuODQxNiAxLjg2MzYuODQxNiAzLjUyNDJ2Mi4yMDE3aC0yLjI1NDN2LTMuNzEyTDguNSA4aDIuMzUybDMuMzEzOCA3LjIzNjNaTTE2Ljk0NjEgOGwtMi43NTc3IDYuMjY3aDIuMjkxOEwxOS4yNDU1IDhoLTIuMjk5NFoiIGZpbGw9ImJsYWNrIi8+Cjwvc3ZnPgo=);
+h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
 }
 
-[theme="search-app"][locale='ru'] .icon.icon-protect {
-    --icon-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgZmlsbD0ibm9uZSI+CjxwYXRoIGQ9Ik0yNS4yMzcgOC42OTNjLS4yNzcgNC4yMDYtLjc5MyA3Ljk0Ni0yLjM3NyAxMS4wNjgtMS41MzYgMy4wMjctNC4wNTggNS40MjgtNy45OSA3LjE1LS4xNzMuMDc1LS4zMy4xNDYtLjUxNy4xODZhMS44MSAxLjgxIDAgMCAxLS43MDcgMGMtLjE4Ny0uMDQtLjM0Mi0uMTExLS41MTUtLjE4Ny0zLjkzLTEuNzIxLTYuNDU0LTQuMTIyLTcuOTktNy4xNUMzLjU1NSAxNi42MzkgMy4wNCAxMi45IDIuNzYyIDguNjk0Yy0uMDItLjMtLjA0NC0uNTY4LjAxMy0uODI3LjA3LS4zMTcuMjMxLS42MTQuNDYtLjg0NS4xODctLjE4OC40MjgtLjMxNS42OTUtLjQ2M2w4Ljk1Ny00Ljk3N2MuMjM5LS4xMzIuNDQ5LS4yNTQuNjgtLjMxMy4yODMtLjA3NC41OC0uMDc0Ljg2NCAwIC4yMy4wNi40NDEuMTguNjguMzEzbDguOTU3IDQuOTc3Yy4yNjcuMTQ4LjUwOC4yNzUuNjk1LjQ2My4yMjkuMjMxLjM5LjUyOC40Ni44NDUuMDU2LjI2LjAzMy41MjcuMDEzLjgyN3oiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMS4xOTUiLz4KPHBhdGggZD0iTTE1LjY0MyAyMEgxOFY3aC0zLjQyOWMtMy40NDggMC01LjI2IDEuNzAyLTUuMjYgNC4yMDkgMCAyLjAwMS45OTQgMy4xOCAyLjc2NyA0LjM5NUw5IDIwaDIuNTUybDMuNDI4LTQuOTItMS4xODgtLjc2NmMtMS40NDEtLjkzNi0yLjE0My0xLjY2NS0yLjE0My0zLjIzNiAwLTEuMzg0IDEuMDEzLTIuMzIgMi45NDItMi4zMmgxLjA1MlYyMHoiIGZpbGw9ImJsYWNrIi8+Cjwvc3ZnPgo=);
+/* ── Карточки статистики ── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
 }
 
-.icon.icon-chevron {
-  --icon-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iIzAwMCIgZD0iTTIgNi41VjQuNjY3TDggOS41bDYtNC44MzNWNi41bC02IDQuODM0eiIvPjwvc3ZnPg==);
-  --icon-color: var(--text-color-primary);
-  --icon-size: 16px;
-  opacity: 0.9;
+.stat-card {
+  background: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  border: 1px solid #ddd;
 }
 
-.icon.icon-close {
-  --icon-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iIzAwMCIgZD0ibTcuMDU2IDgtNC4zOS00LjM4OS45NDQtLjk0NEw4IDcuMDU3bDQuMzktNC4zOS45NDMuOTQ0LTQuMzkgNC4zOSA0LjM5IDQuMzg5LS45NDQuOTQ0LTQuMzktNC4zOS00LjM4OCA0LjM5LS45NDQtLjk0NHoiLz48L3N2Zz4=);
-  --icon-color: var(--text-color-primary);
-  --icon-size: 16px;
+.stat-label {
+  display: block;
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 6px;
 }
-</style>
+
+.stat-value {
+  display: block;
+  font-size: 22px;
+  font-weight: bold;
+  color: #222;
+}
+
+/* Цвет значений для доходов и расходов */
+.stat-card.income .stat-value { color: #020202; }
+.stat-card.expense .stat-value { color: #100f0f; }
+
+/* ── Форма ── */
+.form-section {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+label {
+  font-size: 13px;
+  color: #555;
+  font-weight: bold;
+}
+
+input,
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  width: 100%;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #FFD700;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: #FFD700;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+button[type="submit"]:hover {
+  background: #e6c200;
+}
+
+/* ── Список транзакций ── */
+.list-section {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+/* Одна строка транзакции */
+.tx-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.tx-row:last-child {
+  border-bottom: none;
+}
+
+/* Дата и категория */
+.tx-info {
+  flex: 1;
+}
+
+.tx-category {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.tx-meta {
+  font-size: 12px;
+  color: #777;
+  margin-top: 2px;
+}
+
+/* Сумма — зелёная для доходов, красная для расходов */
+.tx-amount {
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.tx-amount.income { color: #1a8a5a; }
+.tx-amount.expense { color: #c0392b; }
+
+/* Кнопка удаления */
+.btn-delete {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #c0392b;
+}
+
+.btn-delete:hover {
+  background: #fdecea;
+}
+
+/* Пустое состояние */
+.empty-state {
+  text-align: center;
+  padding: 32px;
+  color: #aaa;
+  font-size: 15px;
+}
