@@ -1,4 +1,40 @@
+// === КАТЕГОРИИ ДЛЯ ДОХОДОВ И ТРАТ ===
+const categoriesMap = {
+  income: [
+    { value: "Переводы", text: "Переводы" },
+    { value: "Пополнение", text: "Пополнение" },
+    { value: "Другое", text: "Другое" }
+  ],
+  expense: [
+    { value: "Еда", text: "Еда" },
+    { value: "Транспорт", text: "Транспорт" },
+    { value: "Развлечения", text: "Развлечения" },
+    { value: "Учёба", text: "Учёба" },
+    { value: "Другое", text: "Другое" }
+  ]
+};
 
+// Функция для динамического обновления списка категорий
+function updateCategories() {
+  const txType = document.getElementById("tx-type");
+  const txCategory = document.getElementById("tx-category");
+  const selectedType = txType.value; // "income" или "expense"
+  const currentCategories = categoriesMap[selectedType];
+
+  txCategory.innerHTML = ""; // Очищаем старые категории
+
+  currentCategories.forEach(category => {
+    const option = document.createElement("option");
+    option.value = category.value;
+    option.textContent = category.text;
+    txCategory.appendChild(option);
+  });
+}
+
+// Слушатель для изменения типа транзакции вручную
+document.getElementById("tx-type").addEventListener("change", updateCategories);
+
+// === ВАШ ИСХОДНЫЙ КОД С ИНТЕГРАЦИЕЙ ===
 let transactions = [];
 
 window.addEventListener('load', function () {
@@ -6,9 +42,11 @@ window.addEventListener('load', function () {
   if (saved) {
     transactions = JSON.parse(saved);
   }
-
   document.getElementById('tx-date').value = getTodayDate();
-
+  
+  // Инициализируем правильные категории при первой загрузке страницы
+  updateCategories(); 
+  
   renderTransactions();
   updateStats();
 });
@@ -22,9 +60,7 @@ function saveToStorage() {
 }
 
 document.getElementById('tx-form').addEventListener('submit', function (e) {
-
   e.preventDefault();
-
   const type = document.getElementById('tx-type').value;
   const amount = parseFloat(document.getElementById('tx-amount').value);
   const category = document.getElementById('tx-category').value;
@@ -32,7 +68,6 @@ document.getElementById('tx-form').addEventListener('submit', function (e) {
   const comment = document.getElementById('tx-comment').value.trim();
 
   if (!category || !amount || amount <= 0) return;
-
 
   const newTransaction = {
     id: Date.now().toString(),
@@ -44,22 +79,21 @@ document.getElementById('tx-form').addEventListener('submit', function (e) {
   };
 
   transactions.unshift(newTransaction);
-
   saveToStorage();
-
   renderTransactions();
   updateStats();
 
+  // Очистка полей формы после успешной отправки
   document.getElementById('tx-amount').value = '';
-  document.getElementById('tx-category').value = '';
   document.getElementById('tx-comment').value = '';
+  // Вместо пустой строки обновляем категории, чтобы сбросить на дефолтную доступную
+  updateCategories(); 
 });
 
 function deleteTransaction(id) {
   transactions = transactions.filter(function (t) {
     return t.id !== id;
   });
-
   saveToStorage();
   renderTransactions();
   updateStats();
@@ -67,10 +101,8 @@ function deleteTransaction(id) {
 
 function renderTransactions() {
   const listEl = document.getElementById('transactions-list');
-
-  // Если транзакций нет — показываем заглушку
   if (transactions.length === 0) {
-    listEl.innerHTML = '<div class="empty-state">Транзакций пока нет. Добавьте первую!</div>';
+    listEl.innerHTML = '<div class="empty-state">Транзакций пока нет. Добавьте</div>';
     return;
   }
 
@@ -84,7 +116,6 @@ function renderTransactions() {
       month: 'short',
       year: 'numeric'
     });
-
 
     const commentHtml = t.comment ? ' · ' + t.comment : '';
 
@@ -131,5 +162,8 @@ function updateStats() {
 }
 
 function formatMoney(amount) {
-  return amount.toLocaleString('ru-RU', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  return amount.toLocaleString('ru-RU', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
 }

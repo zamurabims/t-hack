@@ -1,4 +1,4 @@
-/* ── Базовые стили ── */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,9 +12,8 @@ body {
   font-size: 16px;
 }
 
-/* ── Шапка ── */
 header {
-  background: #FFD700;
+  background: #d8c141;
   padding: 16px 24px;
 }
 
@@ -22,7 +21,6 @@ header h1 {
   font-size: 22px;
 }
 
-/* ── Основной контент ── */
 main {
   max-width: 800px;
   margin: 24px auto;
@@ -37,7 +35,6 @@ h2 {
   margin-bottom: 12px;
 }
 
-/* ── Карточки статистики ── */
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -66,11 +63,10 @@ h2 {
   color: #222;
 }
 
-/* Цвет значений для доходов и расходов */
 .stat-card.income .stat-value { color: #020202; }
 .stat-card.expense .stat-value { color: #100f0f; }
 
-/* ── Форма ── */
+ 
 .form-section {
   background: white;
   border-radius: 10px;
@@ -122,7 +118,6 @@ button[type="submit"]:hover {
   background: #e6c200;
 }
 
-/* ── Список транзакций ── */
 .list-section {
   background: white;
   border-radius: 10px;
@@ -130,7 +125,6 @@ button[type="submit"]:hover {
   border: 1px solid #ddd;
 }
 
-/* Одна строка транзакции */
 .tx-row {
   display: flex;
   align-items: center;
@@ -143,7 +137,6 @@ button[type="submit"]:hover {
   border-bottom: none;
 }
 
-/* Дата и категория */
 .tx-info {
   flex: 1;
 }
@@ -158,8 +151,6 @@ button[type="submit"]:hover {
   color: #777;
   margin-top: 2px;
 }
-
-/* Сумма — зелёная для доходов, красная для расходов */
 .tx-amount {
   font-size: 16px;
   font-weight: bold;
@@ -169,7 +160,6 @@ button[type="submit"]:hover {
 .tx-amount.income { color: #1a8a5a; }
 .tx-amount.expense { color: #c0392b; }
 
-/* Кнопка удаления */
 .btn-delete {
   background: none;
   border: 1px solid #ddd;
