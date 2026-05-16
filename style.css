@@ -1,0 +1,35 @@
+element.style {
+    font-family: Arial, 'Yandex Sans Text', Segoe UI, sans-serif;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    background: var(--background-color);
+}
+
+:root {
+    --font-14: normal 400 14px / 18px 'YS Text', sans-serif;
+    --font-14-20: normal 400 14px / 20px 'YS Text', sans-serif;
+    --font-15-20: normal 400 15px / 20px 'YS Text', sans-serif;
+    --font-16: normal 400 16px / 20px 'YS Text', sans-serif;
+    --font-16-bold: normal 500 16px / 20px 'YS Text', sans-serif;
+    --font-22: normal 400 22px / 26px 'YS Text', sans-serif;
+    --font-28: normal 400 28px / 32px 'YS Text', sans-serif;
+    --background-color: #F3F3F2;
+    --text-color-primary: #000000;
+    --text-color-secondary: #000000A8;
+    --text-color-inverted: #FFFFFF;
+    --accent-graphite-color: #2C2C32;
+    --accent-graphite-hover-color: #43434C;
+    --accent-graphite-active-color: #696977;
+    --fill-6-color: #0000000F;
+    --fill-9-color: #00000017;
+    --fill-12-color: #0000001F;
+    --fill-18-color: #0000002E;
+    --applied-link-color: #0077FF;
+    --applied-debug-info-background-color: #FFF;
+    --applied-debug-info-shadow-color: #0000001C;
+}
