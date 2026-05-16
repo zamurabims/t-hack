@@ -5,7 +5,7 @@ element.style {
 
 header {
     padding: 20px;
-    background: var(--accent-graphite-color);
+    background-color: #FBBF24;
     color: var(--text-color-inverted);
     text-align: center;
 }
