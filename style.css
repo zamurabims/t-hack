@@ -66,7 +66,7 @@ h2 {
 .stat-card.income .stat-value { color: #020202; }
 .stat-card.expense .stat-value { color: #100f0f; }
 
- 
+
 .form-section {
   background: white;
   border-radius: 10px;
@@ -118,6 +118,7 @@ button[type="submit"]:hover {
   background: #e6c200;
 }
 
+
 .list-section {
   background: white;
   border-radius: 10px;
@@ -151,6 +152,7 @@ button[type="submit"]:hover {
   color: #777;
   margin-top: 2px;
 }
+
 .tx-amount {
   font-size: 16px;
   font-weight: bold;
@@ -174,10 +176,86 @@ button[type="submit"]:hover {
   background: #fdecea;
 }
 
-/* Пустое состояние */
 .empty-state {
   text-align: center;
   padding: 32px;
   color: #aaa;
   font-size: 15px;
+}
+
+footer {
+  max-width: 800px; 
+  margin: 40px auto 24px auto;
+  padding: 0 16px;
+}
+
+.in_footer.d-flex, .left, .right, .bott {
+  box-sizing: border-box;
+}
+
+.in_footer.d-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;            
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  width: 100%;
+}
+
+.left {
+  background: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: left;
+  border: 1px solid #ddd;
+  flex: 1;
+} 
+
+.left img {
+  width: 18px;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+
+.left a {
+  color: #1a8a5a;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.left a:hover {
+  text-decoration: underline;
+}
+
+.right {
+  background: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center; 
+  border: 1px solid #ddd;
+  flex: 1;
+}
+
+.right script, .right ymaps {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.bott {
+  background: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  border: 1px solid #ddd;
+  margin-top: 16px;
+}
+
+@media (min-width: 768px) {
+  .in_footer.d-flex {
+    flex-direction: row;
+  }
 }

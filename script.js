@@ -1,27 +1,25 @@
-// === КАТЕГОРИИ ДЛЯ ДОХОДОВ И ТРАТ ===
 const categoriesMap = {
   income: [
-    { value: "Переводы", text: "Переводы" },
-    { value: "Пополнение", text: "Пополнение" },
-    { value: "Другое", text: "Другое" }
+    { value: "Переводы", text: "переводы" },
+    { value: "Пополнение", text: "пополнение" },
+    { value: "Другое", text: "другое" }
   ],
   expense: [
-    { value: "Еда", text: "Еда" },
-    { value: "Транспорт", text: "Транспорт" },
-    { value: "Развлечения", text: "Развлечения" },
-    { value: "Учёба", text: "Учёба" },
-    { value: "Другое", text: "Другое" }
+    { value: "Еда", text: "еда" },
+    { value: "Транспорт", text: "транспорт" },
+    { value: "Развлечения", text: "развлечения" },
+    { value: "Учёба", text: "учёба" },
+    { value: "Другое", text: "другое" }
   ]
 };
 
-// Функция для динамического обновления списка категорий
 function updateCategories() {
   const txType = document.getElementById("tx-type");
   const txCategory = document.getElementById("tx-category");
-  const selectedType = txType.value; // "income" или "expense"
+  const selectedType = txType.value;
   const currentCategories = categoriesMap[selectedType];
 
-  txCategory.innerHTML = ""; // Очищаем старые категории
+  txCategory.innerHTML = "";
 
   currentCategories.forEach(category => {
     const option = document.createElement("option");
@@ -31,10 +29,8 @@ function updateCategories() {
   });
 }
 
-// Слушатель для изменения типа транзакции вручную
 document.getElementById("tx-type").addEventListener("change", updateCategories);
 
-// === ВАШ ИСХОДНЫЙ КОД С ИНТЕГРАЦИЕЙ ===
 let transactions = [];
 
 window.addEventListener('load', function () {
@@ -44,7 +40,6 @@ window.addEventListener('load', function () {
   }
   document.getElementById('tx-date').value = getTodayDate();
   
-  // Инициализируем правильные категории при первой загрузке страницы
   updateCategories(); 
   
   renderTransactions();
@@ -83,10 +78,8 @@ document.getElementById('tx-form').addEventListener('submit', function (e) {
   renderTransactions();
   updateStats();
 
-  // Очистка полей формы после успешной отправки
   document.getElementById('tx-amount').value = '';
   document.getElementById('tx-comment').value = '';
-  // Вместо пустой строки обновляем категории, чтобы сбросить на дефолтную доступную
   updateCategories(); 
 });
 
